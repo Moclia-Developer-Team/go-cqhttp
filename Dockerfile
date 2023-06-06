@@ -17,10 +17,12 @@ FROM alpine:latest
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN chmod +x /docker-entrypoint.sh && \
+    sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
     apk add --no-cache --update \
       ffmpeg \
       coreutils \
       shadow \
+      curl \
       su-exec && \
     rm -rf /var/cache/apk/* && \
     mkdir -p /app && \
