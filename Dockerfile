@@ -44,3 +44,4 @@ WORKDIR /data
 VOLUME [ "/data" ]
 
 ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "/app/cqhttp" ]
